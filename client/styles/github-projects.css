@@ -1,0 +1,36 @@
+.project-wrapper {
+  background-color: var(--secondaryColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 3px;
+  /* box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75); */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  /* grid-template-rows: 3em 3em; */
+
+  grid-template-areas: "date name link";
+  /* "description description"; */
+
+  /* padding: 30px 30px 60px 30px; */
+  /* padding-bottom: 60px; */
+}
+
+.name {
+  grid-area: name;
+  margin: 3rem;
+}
+
+.date {
+  grid-area: date;
+  margin: 3rem;
+}
+
+.link {
+  grid-area: link;
+  margin: 3rem;
+}
+
+.description {
+  grid-area: description;
+  margin: 3rem;
+}

@@ -1,4 +1,6 @@
-import { inputGreeting } from '../../shared/input-greeting.js';
+import { intro } from "./intro.js";
+import { githubProjects } from "./github-projects.js";
+import { contact } from "./contact.js";
 
 /**
  * The home page.
@@ -6,11 +8,9 @@ import { inputGreeting } from '../../shared/input-greeting.js';
  * @returns {HTMLDivElement} A rendered home page.
  */
 export const home = () => {
-  const container = document.createElement('div');
-  container.className = 'body';
-  container.innerHTML = 'home: ';
-
-  container.appendChild(inputGreeting());
+  const container = document.createElement("div");
+  container.className = "body";
+  container.append(intro, githubProjects, contact);
 
   return container;
 };
