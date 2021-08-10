@@ -1,36 +1,45 @@
+.projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .project-wrapper {
-  background-color: var(--secondaryColor);
-  border: 1px solid var(--borderColor);
-  border-radius: 3px;
-  /* box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75); */
+  border: 1px solid pink;
+  background: var(--secondaryColor);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  /* grid-template-rows: 3em 3em; */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3rem 3em;
 
-  grid-template-areas: "date name link";
-  /* "description description"; */
+  grid-template-areas:
+    "name name"
+    "date date"
+    "link code"
+    "description description";
 
-  /* padding: 30px 30px 60px 30px; */
-  /* padding-bottom: 60px; */
+  width: fit-content;
+  padding: 1em;
 }
 
 .name {
-  grid-area: name;
-  margin: 3rem;
+  grid-area: "name";
+  font-family: var(--headerFont);
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .date {
   grid-area: date;
-  margin: 3rem;
 }
 
 .link {
   grid-area: link;
-  margin: 3rem;
+}
+
+.code {
+  grid-area: code;
 }
 
 .description {
   grid-area: description;
-  margin: 3rem;
 }

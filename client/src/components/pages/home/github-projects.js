@@ -2,62 +2,60 @@ import { fetchUser } from "../../../api-calls/api-call.js";
 
 export const githubProjects = document.createElement("section");
 githubProjects.className = "s1";
+
 const div = document.createElement("div");
 div.className = "main-container";
-const wrapper = document.createElement("div");
-wrapper.className = "projects-wrapper";
-div.appendChild(wrapper);
 
-const h1 = document.createElement("h1");
-h1.innerText = "Projects";
+const projects = document.createElement("div");
+projects.className = "projects-list";
+div.appendChild(projects);
 githubProjects.appendChild(div);
-div.appendChild(h1);
 
-export const showD = async () => {
+export const showProjects = async () => {
   try {
     const response = await fetchUser();
-    response.forEach((element) => {
-      console.log(element.name);
+
+    let newFirst = response.sort((a, b) => b.created_at - a.created_at);
+
+    newFirst.forEach((element) => {
       const wrapper = document.createElement("div");
       wrapper.className = "project-wrapper";
+
+      const projectNav = document.createElement("div");
+      projectNav.className = "project-nav";
+
+      const info = document.createElement("div");
+
       const name = document.createElement("div");
       name.className = "name";
       name.textContent = `${element.name}`;
+
       const date = document.createElement("div");
       date.className = "date";
-      date.textContent = `${element.created_at}`;
+      const dateCreated = new Date(element.created_at);
+      date.textContent = `${dateCreated.toLocaleDateString()}`;
+
+      const menu = document.createElement("div");
+      menu.className = "project-menu";
+
       const link = document.createElement("div");
       link.className = "link";
-      link.textContent = `${element.homepage}`;
-      wrapper.append(date, name, link);
-      div.appendChild(wrapper);
-    });
+      link.innerHTML = `<a href = ${element.homepage}> <i class="fas fa-eye"></i> </a>`;
 
-    console.log(response);
-    console.log(response[1].name);
-    console.log(response[1].created_at);
-    console.log(response[1].homepage);
+      const code = document.createElement("div");
+      code.className = "code";
+      code.innerHTML = `<a href = ${element.html_url}> <i class="fas fa-code"></i> </a>`;
+
+      const description = document.createElement("div");
+      description.className = "description";
+      description.textContent = `${element.description}`;
+
+      info.append(name, date, link, code);
+      projectNav.appendChild(info);
+      wrapper.append(projectNav, description);
+      projects.appendChild(wrapper);
+    });
   } catch (error) {
     console.log(error);
   }
 };
-
-// export const showDi = async () => {
-//     try {
-//       const response = await fetchUser();
-//       response.forEach((element) => {
-
-//           const date = document.createElement("div");
-//           date.className = "date";
-//           date.textContent = `${element.created_at}`;
-//         //   date.textContent = `${element.created_at}`;
-//         //   const link = document.createElement("div");
-//         //   link.className = "link";
-//         //   link.textContent = `${element.homepage}`;
-
-//         wrapper.append(date);
-//         div.appendChild(wrapper);
-//       });
-
-showD();
-// showDi();
