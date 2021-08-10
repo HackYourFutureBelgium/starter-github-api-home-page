@@ -21,19 +21,15 @@ export const showProjects = async () => {
       const wrapper = document.createElement("div");
       wrapper.className = "project-wrapper";
 
-      const projectNav = document.createElement("div");
-      projectNav.className = "project-nav";
+      const projectHeader = document.createElement("div");
+      projectHeader.className = "project-header";
 
       const info = document.createElement("div");
-
-      const name = document.createElement("div");
-      name.className = "name";
-      name.textContent = `${element.name}`;
-
-      const date = document.createElement("div");
-      date.className = "date";
+      info.className = "info";
       const dateCreated = new Date(element.created_at);
-      date.textContent = `${dateCreated.toLocaleDateString()}`;
+      info.innerHTML = `<span class='name'>${
+        element.name
+      }</span> <span class='date'>${dateCreated.toLocaleDateString()}</span>`;
 
       const menu = document.createElement("div");
       menu.className = "project-menu";
@@ -50,10 +46,15 @@ export const showProjects = async () => {
       description.className = "description";
       description.textContent = `${element.description}`;
 
-      info.append(name, date, link, code);
-      projectNav.appendChild(info);
-      wrapper.append(projectNav, description);
       projects.appendChild(wrapper);
+      wrapper.append(projectHeader, description);
+      projectHeader.append(info, menu);
+
+      if (element.homepage === null) {
+        menu.append(code);
+      } else {
+        menu.append(code, link);
+      }
     });
   } catch (error) {
     console.log(error);

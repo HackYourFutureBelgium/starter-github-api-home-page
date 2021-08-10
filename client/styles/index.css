@@ -2,15 +2,17 @@
 @import url("./github-projects.css");
 
 :root {
-  --mainColor: #eaeaea;
+  --mainColor: #e6f0f4;
   --secondaryColor: #fff;
 
-  --borderColor: #c1c1c1;
+  --borderColor: #db729a;
 
   --mainText: black;
   --secondaryText: #4b5156;
 
   --link: #17a2b8;
+  --linkHover: #a13666;
+  --header: #005b8b;
 
   --headerFont: "Dosis";
   --textFont: "Montserrat";
@@ -48,20 +50,31 @@ a {
   color: var(--link);
 }
 
+a:hover {
+  color: var(--linkHover);
+}
+
 ul {
   list-style: none;
 }
 
 .s1 {
+  margin: 2em;
   background-color: var(--mainColor);
-  border-bottom: 1px solid var(--borderColor);
+  /* border-bottom: 1px solid var(--borderColor); */
   overflow: auto;
+  box-shadow: 23px 23px 34px #b8b8b8, -23px -23px 34px #ffffff;
 }
 
 .s2 {
-  background-color: var(--secondaryColor);
-  border-bottom: 1px solid var(--borderColor);
+  margin: 2em;
+  padding: 3em;
+  background-color: var(--mainColor);
+  /* border-bottom: 1px solid var(--borderColor); */
   overflow: auto;
+
+  background: #ffffff;
+  box-shadow: 23px 23px 34px #b8b8b8, -23px -23px 34px #ffffff;
 }
 
 .main-container {

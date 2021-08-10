@@ -1,7 +1,7 @@
-.projects {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.projects-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "project-wrapper project-wrapper project-wrapper";
 }
 
 .project-wrapper {
@@ -9,35 +9,51 @@
   background: var(--secondaryColor);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3rem 3em;
-
+  /* grid-template-rows: 3rem 3em; */
   grid-template-areas:
-    "name name"
-    "date date"
-    "link code"
+    "project-header project-header"
     "description description";
-
-  width: fit-content;
+  /* width: 0px; */
   padding: 1em;
+  margin: 1em;
+  gap: 20px;
+}
+
+.project-header {
+  grid-area: project-header;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-menu {
+  display: flex;
+  flex-direction: row;
 }
 
 .name {
-  grid-area: "name";
+  color: var(--header);
   font-family: var(--headerFont);
   font-weight: 600;
   font-size: 1.5rem;
 }
 
 .date {
-  grid-area: date;
+  font-family: var(--textFont);
+  font-size: 1rem;
+  color: lightcoral;
+  margin: 0.2rem;
 }
 
-.link {
-  grid-area: link;
-}
-
+.link,
 .code {
-  grid-area: code;
+  padding: 1em;
 }
 
 .description {
