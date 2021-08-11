@@ -1,3 +1,4 @@
 export const config = {
-  repoName: 'javascript-quiz',
+  // write the name of your repository in this field
+  repoName: '',
 };

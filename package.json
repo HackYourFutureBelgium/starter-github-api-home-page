@@ -8,7 +8,7 @@
     "test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests ./client/src",
     "lint:css": "stylelint",
     "lint:js": "eslint --max-warnings=0 --ext=.js --format=codeframe --fix",
-    "format": "prettier ./client",
+    "format": "prettier --write ./client",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
